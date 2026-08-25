@@ -57,7 +57,10 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.5.0</version> <!-- or latest stable -->
+            <!-- The 3.x line is built against Spring Framework 7 / Boot 4.
+                 2.x targets Framework 6 and fails at runtime with
+                 NoSuchMethodError on ControllerAdviceBean.<init>(Object). -->
+            <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

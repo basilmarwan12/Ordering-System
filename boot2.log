@@ -1,0 +1,129 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< Ordering.management:project >---------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.0:run (default-cli) > test-compile @ project >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ project ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ project ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 33 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ project ---
+[INFO] skip non existing resourceDirectory D:\projects\project\project\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ project ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.1.0:run (default-cli) < test-compile @ project <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.0:run (default-cli) @ project ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:07:55.130+03:00  INFO 19728 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 19728 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:07:55.133+03:00  INFO 19728 --- [project] [  restartedMain] App.ProjectApplication                   : No active profile set, falling back to 1 default profile: "default"
+2026-08-25T12:07:55.189+03:00  INFO 19728 --- [project] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-25T12:07:55.189+03:00  INFO 19728 --- [project] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-25T12:07:56.904+03:00  INFO 19728 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:07:57.073+03:00  INFO 19728 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 154 ms. Found 2 JPA repository interfaces.
+2026-08-25T12:07:58.429+03:00  INFO 19728 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8099 (http)
+2026-08-25T12:07:58.441+03:00  INFO 19728 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T12:07:58.441+03:00  INFO 19728 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T12:07:58.482+03:00  INFO 19728 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3293 ms
+2026-08-25T12:07:58.719+03:00  INFO 19728 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T12:07:58.764+03:00  INFO 19728 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-25T12:07:59.129+03:00  INFO 19728 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T12:07:59.158+03:00  INFO 19728 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-25T12:07:59.316+03:00  INFO 19728 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@437ad61
+2026-08-25T12:07:59.318+03:00  INFO 19728 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-25T12:07:59.390+03:00  INFO 19728 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T12:08:00.251+03:00  INFO 19728 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T12:08:00.317+03:00  INFO 19728 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:08:00.399+03:00  INFO 19728 --- [project] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-25T12:08:01.129+03:00  INFO 19728 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T12:08:01.721+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T12:08:01.728+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+2026-08-25T12:08:01.733+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T12:08:01.735+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T12:08:01.748+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T12:08:01.750+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T12:08:01.751+03:00 TRACE 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T12:08:01.752+03:00 DEBUG 19728 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T12:08:02.211+03:00  INFO 19728 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T12:08:02.281+03:00  WARN 19728 --- [project] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-08-25T12:08:02.285+03:00  INFO 19728 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:08:02.288+03:00  INFO 19728 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-25T12:08:02.295+03:00  INFO 19728 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-25T12:08:02.308+03:00  INFO 19728 --- [project] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-25T12:08:02.320+03:00 ERROR 19728 --- [project] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8099 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8099 or configure this application to listen on another port.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.445 s
+[INFO] Finished at: 2026-08-25T12:08:02+03:00
+[INFO] ------------------------------------------------------------------------

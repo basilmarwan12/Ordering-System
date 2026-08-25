@@ -1,0 +1,1938 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< Ordering.management:project >---------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.0:run (default-cli) > test-compile @ project >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ project ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ project ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 34 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ project ---
+[INFO] skip non existing resourceDirectory D:\projects\project\project\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ project ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.1.0:run (default-cli) < test-compile @ project <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.0:run (default-cli) @ project ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:17:44.084+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:17:44.088+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T12:17:44.149+03:00  INFO 5372 --- [project] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-25T12:17:44.149+03:00  INFO 5372 --- [project] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-25T12:17:45.799+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:17:45.902+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 2 JPA repository interfaces.
+2026-08-25T12:17:46.867+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T12:17:46.883+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T12:17:46.883+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T12:17:46.927+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2776 ms
+2026-08-25T12:17:47.183+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T12:17:47.231+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-25T12:17:47.651+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T12:17:47.678+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-25T12:17:47.903+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7206e4c1
+2026-08-25T12:17:47.904+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-25T12:17:47.987+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T12:17:48.832+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T12:17:48.896+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:17:48.986+03:00  INFO 5372 --- [project] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-25T12:17:49.950+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T12:17:50.513+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T12:17:50.519+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T12:17:50.525+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T12:17:50.527+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T12:17:50.541+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T12:17:50.543+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T12:17:50.544+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T12:17:50.545+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T12:17:50.996+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T12:17:51.066+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T12:17:51.074+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 7.375 seconds (process running for 7.859)
+2026-08-25T12:17:51.475+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T12:17:51.588+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.595+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.596+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.598+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.599+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.600+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.601+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.602+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.602+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.603+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (address, birthday, email, first_name, last_name, password, phone_number, role, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.604+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.612+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.614+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.616+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.617+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.618+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.620+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.621+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.622+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.623+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.624+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.625+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.626+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.627+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.629+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.630+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.631+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.632+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.633+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.634+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.635+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.637+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.638+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.639+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.640+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        orders
+        (billing_address, discount_amount, number, payment_method, payment_status, shipping_address, shipping_status, status, stock, subtotal, total_amount, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seeded 2 admins, 8 customers and 25 orders.
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Log in as admin1@seed.local / Password1* to get an ADMIN token.
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer1@seed.local -> uuid 8f5f18dc-fd5f-49cc-94f1-257e45004d3d
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer2@seed.local -> uuid 1e3f90b7-6931-403a-a05e-69a59eba8c86
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer3@seed.local -> uuid 695ff961-34e2-4853-bf1b-df7696c53eba
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer4@seed.local -> uuid 483abf9b-55ba-48ed-bf69-cc8a961c24a0
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer5@seed.local -> uuid 0b0b835e-af84-4e03-b614-87d248628ec4
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer6@seed.local -> uuid 5a9ff75e-f36f-4153-8832-b1f2748c5501
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer7@seed.local -> uuid a5ba6ad8-4b0b-4392-aaa9-5c734b1b97b5
+2026-08-25T12:17:51.641+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    :   customer customer8@seed.local -> uuid 5d492a7a-ef60-4067-9cdb-4b575a9b0237
+2026-08-25T12:17:51.658+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T12:17:51.658+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T12:19:38.425+03:00  INFO 5372 --- [project] [nio-8098-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-25T12:19:38.425+03:00  INFO 5372 --- [project] [nio-8098-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-25T12:19:38.427+03:00  INFO 5372 --- [project] [nio-8098-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-08-25T12:19:38.460+03:00 TRACE 5372 --- [project] [nio-8098-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.Authentication#login(LoginRequest)
+2026-08-25T12:19:38.587+03:00 DEBUG 5372 --- [project] [nio-8098-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-08-25T12:19:38.862+03:00 TRACE 5372 --- [project] [nio-8098-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.Authentication#login(LoginRequest)
+2026-08-25T12:19:38.866+03:00 DEBUG 5372 --- [project] [nio-8098-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-08-25T12:19:39.025+03:00 TRACE 5372 --- [project] [nio-8098-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrdersByUserId(UUID, Jwt)
+2026-08-25T12:19:39.055+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:19:39.059+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2026-08-25T12:19:39.066+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:19:39.128+03:00 TRACE 5372 --- [project] [nio-8098-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#listOrdersByUserId(UUID, Pageable, Jwt)
+2026-08-25T12:19:39.135+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:19:39.149+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=? 
+    order by
+        o1_0.id desc 
+    limit
+        ?
+2026-08-25T12:19:39.150+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:19:39.157+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2026-08-25T12:19:39.216+03:00 TRACE 5372 --- [project] [nio-8098-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrdersByUserId(UUID, Jwt)
+2026-08-25T12:19:39.228+03:00  WARN 5372 --- [project] [nio-8098-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: Access denied]
+2026-08-25T12:19:39.279+03:00 TRACE 5372 --- [project] [io-8098-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrdersByUserId(UUID, Jwt)
+2026-08-25T12:19:39.281+03:00 DEBUG 5372 --- [project] [io-8098-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:19:39.282+03:00 DEBUG 5372 --- [project] [io-8098-exec-10] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2026-08-25T12:19:39.283+03:00 DEBUG 5372 --- [project] [io-8098-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:20.747+03:00 TRACE 5372 --- [project] [nio-8098-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.Authentication#login(LoginRequest)
+2026-08-25T12:20:20.749+03:00 DEBUG 5372 --- [project] [nio-8098-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-08-25T12:20:20.882+03:00 TRACE 5372 --- [project] [nio-8098-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#listOrdersByUserId(UUID, Pageable, Jwt)
+2026-08-25T12:20:20.884+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:20.887+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=? 
+    order by
+        o1_0.id desc 
+    limit
+        ?, ?
+2026-08-25T12:20:20.889+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:20.891+03:00 DEBUG 5372 --- [project] [nio-8098-exec-7] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2026-08-25T12:20:50.340+03:00 TRACE 5372 --- [project] [nio-8098-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.Authentication#login(LoginRequest)
+2026-08-25T12:20:50.341+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-08-25T12:20:50.583+03:00 TRACE 5372 --- [project] [nio-8098-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrderById(Long, Jwt)
+2026-08-25T12:20:50.589+03:00 DEBUG 5372 --- [project] [nio-8098-exec-8] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id,
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        orders o1_0 
+    join
+        users u1_0 
+            on u1_0.uuid=o1_0.user_id 
+    where
+        o1_0.id=?
+2026-08-25T12:20:50.636+03:00 TRACE 5372 --- [project] [io-8098-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrderById(Long, Jwt)
+2026-08-25T12:20:50.638+03:00 DEBUG 5372 --- [project] [io-8098-exec-10] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id,
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        orders o1_0 
+    join
+        users u1_0 
+            on u1_0.uuid=o1_0.user_id 
+    where
+        o1_0.id=?
+2026-08-25T12:20:50.642+03:00  WARN 5372 --- [project] [io-8098-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [App.Middlewares.Orders.OrderNotFoundException: Order not found]
+2026-08-25T12:20:50.683+03:00 TRACE 5372 --- [project] [nio-8098-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#getOrderById(Long, Jwt)
+2026-08-25T12:20:50.686+03:00  WARN 5372 --- [project] [nio-8098-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "abc"]
+2026-08-25T12:20:50.730+03:00 TRACE 5372 --- [project] [nio-8098-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#updateOrder(Long, OrderUpdateRequest)
+2026-08-25T12:20:50.752+03:00 DEBUG 5372 --- [project] [nio-8098-exec-3] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id,
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        orders o1_0 
+    join
+        users u1_0 
+            on u1_0.uuid=o1_0.user_id 
+    where
+        o1_0.id=?
+2026-08-25T12:20:50.767+03:00 DEBUG 5372 --- [project] [nio-8098-exec-3] org.hibernate.SQL                        : 
+    update
+        orders 
+    set
+        billing_address=?,
+        discount_amount=?,
+        number=?,
+        payment_method=?,
+        payment_status=?,
+        shipping_address=?,
+        shipping_status=?,
+        status=?,
+        stock=?,
+        subtotal=?,
+        total_amount=?,
+        user_id=? 
+    where
+        id=?
+2026-08-25T12:20:50.813+03:00 TRACE 5372 --- [project] [nio-8098-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#updateOrder(Long, OrderUpdateRequest)
+2026-08-25T12:20:50.824+03:00  WARN 5372 --- [project] [nio-8098-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<App.DTOS.OrderResponse> App.Controllers.OrderController.updateOrder(java.lang.Long,App.DTOS.OrderUpdateRequest): [Field error in object 'orderUpdateRequest' on field 'status': rejected value [BOGUS]; codes [Pattern.orderUpdateRequest.status,Pattern.status,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [orderUpdateRequest.status,status]; arguments []; default message [status],[Ljakarta.validation.constraints.Pattern$Flag;@9d948f9,PENDING|CONFIRMED|CANCELLED|COMPLETED]; default message [Status must be one of PENDING, CONFIRMED, CANCELLED, COMPLETED]] ]
+2026-08-25T12:20:50.863+03:00 TRACE 5372 --- [project] [nio-8098-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#updateOrder(Long, OrderUpdateRequest)
+2026-08-25T12:20:50.865+03:00 DEBUG 5372 --- [project] [nio-8098-exec-6] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id,
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        orders o1_0 
+    join
+        users u1_0 
+            on u1_0.uuid=o1_0.user_id 
+    where
+        o1_0.id=?
+2026-08-25T12:20:50.868+03:00  WARN 5372 --- [project] [nio-8098-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [App.Middlewares.Orders.InvalidOrderAmountsException: Discount amount cannot be greater than subtotal]
+2026-08-25T12:20:50.908+03:00 TRACE 5372 --- [project] [nio-8098-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.OrderController#deleteOrder(Long)
+2026-08-25T12:20:50.910+03:00 DEBUG 5372 --- [project] [nio-8098-exec-4] org.hibernate.SQL                        : 
+    select
+        o1_0.id,
+        o1_0.billing_address,
+        o1_0.discount_amount,
+        o1_0.number,
+        o1_0.payment_method,
+        o1_0.payment_status,
+        o1_0.shipping_address,
+        o1_0.shipping_status,
+        o1_0.status,
+        o1_0.stock,
+        o1_0.subtotal,
+        o1_0.total_amount,
+        o1_0.user_id,
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        orders o1_0 
+    join
+        users u1_0 
+            on u1_0.uuid=o1_0.user_id 
+    where
+        o1_0.id=?
+2026-08-25T12:20:50.916+03:00 DEBUG 5372 --- [project] [nio-8098-exec-4] org.hibernate.SQL                        : 
+    delete 
+    from
+        orders 
+    where
+        id=?
+2026-08-25T12:20:50.961+03:00 TRACE 5372 --- [project] [nio-8098-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.UserController#deleteUser(UUID, Jwt)
+2026-08-25T12:20:50.963+03:00 DEBUG 5372 --- [project] [nio-8098-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:50.967+03:00 DEBUG 5372 --- [project] [nio-8098-exec-9] org.hibernate.SQL                        : 
+    select
+        o1_0.id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=? 
+    limit
+        ?
+2026-08-25T12:20:50.969+03:00  WARN 5372 --- [project] [nio-8098-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [App.Middlewares.Users.UserHasOrdersException: User cannot be deleted while orders exist]
+2026-08-25T12:20:51.009+03:00 TRACE 5372 --- [project] [nio-8098-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.UserController#deleteUser(UUID, Jwt)
+2026-08-25T12:20:51.010+03:00 DEBUG 5372 --- [project] [nio-8098-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:51.012+03:00  WARN 5372 --- [project] [nio-8098-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [App.Middlewares.Users.SelfDeletionNotAllowedException: Admins cannot delete their own account]
+2026-08-25T12:20:51.055+03:00 TRACE 5372 --- [project] [nio-8098-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to App.Controllers.UserController#deleteUser(UUID, Jwt)
+2026-08-25T12:20:51.056+03:00 DEBUG 5372 --- [project] [nio-8098-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid,
+        u1_0.address,
+        u1_0.birthday,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.phone_number,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.uuid=?
+2026-08-25T12:20:51.058+03:00 DEBUG 5372 --- [project] [nio-8098-exec-3] org.hibernate.SQL                        : 
+    select
+        o1_0.id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=? 
+    limit
+        ?
+2026-08-25T12:20:51.061+03:00 DEBUG 5372 --- [project] [nio-8098-exec-3] org.hibernate.SQL                        : 
+    delete 
+    from
+        users 
+    where
+        uuid=?
+2026-08-25T12:56:53.902+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 5 class path changes (0 additions, 5 deletions, 0 modifications)
+2026-08-25T12:56:53.913+03:00  INFO 5372 --- [project] [       Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T12:56:53.932+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T12:56:53.941+03:00  INFO 5372 --- [project] [       Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:56:53.946+03:00  INFO 5372 --- [project] [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-25T12:56:53.950+03:00  INFO 5372 --- [project] [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:56:54.097+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:56:54.097+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T12:56:54.610+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:56:54.624+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2026-08-25T12:56:54.944+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T12:56:54.947+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T12:56:54.947+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T12:56:54.994+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 893 ms
+2026-08-25T12:56:55.217+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T12:56:55.261+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T12:56:55.263+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-08-25T12:56:55.269+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@198a9f26
+2026-08-25T12:56:55.269+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-08-25T12:56:55.271+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T12:56:55.402+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T12:56:55.421+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    alter table orders 
+       add column stock integer not null
+2026-08-25T12:56:55.477+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:56:55.940+03:00  WARN 5372 --- [project] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController' defined in file [D:\projects\project\project\target\classes\App\Controllers\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderService': Lookup method resolution failed
+2026-08-25T12:56:55.940+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:56:55.941+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-08-25T12:56:55.944+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-08-25T12:56:55.945+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-25T12:56:55.954+03:00  INFO 5372 --- [project] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-25T12:56:55.975+03:00 ERROR 5372 --- [project] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController' defined in file [D:\projects\project\project\target\classes\App\Controllers\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at App.ProjectApplication.main(ProjectApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:482) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:352) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1216) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [App.Services.OrderService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1d10ca5d]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:460) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 38 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: App/Middlewares/Orders/InvalidOrderAmountsException
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2676) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.8.jar:7.0.8]
+	... 40 common frames omitted
+Caused by: java.lang.ClassNotFoundException: App.Middlewares.Orders.InvalidOrderAmountsException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:123) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 44 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:56:57.429+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:56:57.429+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T12:56:57.663+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:56:57.679+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2026-08-25T12:56:57.826+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T12:56:57.828+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T12:56:57.828+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T12:56:57.847+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 417 ms
+2026-08-25T12:56:57.940+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T12:56:57.959+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T12:56:57.960+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-08-25T12:56:57.963+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c74a815
+2026-08-25T12:56:57.963+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-08-25T12:56:57.964+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T12:56:58.065+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T12:56:58.084+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:56:59.110+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T12:56:59.471+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T12:56:59.473+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T12:56:59.476+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T12:56:59.477+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T12:56:59.482+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T12:56:59.484+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T12:56:59.486+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T12:56:59.488+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T12:56:59.747+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T12:56:59.773+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T12:56:59.776+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 2.365 seconds (process running for 2356.629)
+2026-08-25T12:56:59.781+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T12:56:59.782+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T12:56:59.783+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T12:56:59.783+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T12:56:59.784+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T12:59:43.813+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 3 deletions, 1 modification)
+2026-08-25T12:59:43.814+03:00  INFO 5372 --- [project] [       Thread-5] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T12:59:43.829+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T12:59:43.832+03:00  INFO 5372 --- [project] [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:59:43.832+03:00  INFO 5372 --- [project] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-08-25T12:59:43.834+03:00  INFO 5372 --- [project] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:59:43.933+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:59:43.933+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T12:59:44.259+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:59:44.271+03:00  WARN 5372 --- [project] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.TypeNotPresentException: Type App.Models.Order not present
+2026-08-25T12:59:44.277+03:00  INFO 5372 --- [project] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-25T12:59:44.280+03:00 ERROR 5372 --- [project] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.TypeNotPresentException: Type App.Models.Order not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95) ~[na:na]
+	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1296) ~[na:na]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:544) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.core.ResolvableType.as(ResolvableType.java:492) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.data.core.TypeDiscoverer.getSuperTypeInformation(TypeDiscoverer.java:266) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.core.TypeInformation.getRequiredSuperTypeInformation(TypeInformation.java:328) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:55) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:79) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:93) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:170) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:67) ~[spring-boot-autoconfigure-4.1.0.jar:4.1.0]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromImportBeanDefinitionRegistrars$0(ConfigurationClassBeanDefinitionReader.java:422) ~[spring-context-7.0.8.jar:7.0.8]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromImportBeanDefinitionRegistrars(ConfigurationClassBeanDefinitionReader.java:421) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:152) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at App.ProjectApplication.main(ProjectApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: java.lang.ClassNotFoundException: App.Models.Order
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:123) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 38 common frames omitted
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T12:59:45.726+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T12:59:45.726+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T12:59:46.128+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T12:59:46.157+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 4 JPA repository interfaces.
+2026-08-25T12:59:46.528+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T12:59:46.530+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T12:59:46.531+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T12:59:46.560+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 832 ms
+2026-08-25T12:59:46.758+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T12:59:46.796+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T12:59:46.797+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-08-25T12:59:46.803+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1851ce75
+2026-08-25T12:59:46.804+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-08-25T12:59:46.805+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T12:59:46.941+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T12:59:46.967+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T12:59:49.536+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T12:59:49.901+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T12:59:49.903+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T12:59:49.905+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T12:59:49.906+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T12:59:49.909+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T12:59:49.910+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T12:59:49.911+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T12:59:49.912+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T12:59:50.136+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T12:59:50.163+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T12:59:50.167+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 4.463 seconds (process running for 2527.022)
+2026-08-25T12:59:50.171+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T12:59:50.174+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T12:59:50.175+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T12:59:50.175+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T12:59:50.177+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T13:02:26.785+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2026-08-25T13:02:26.787+03:00  INFO 5372 --- [project] [      Thread-12] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T13:02:26.803+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T13:02:26.806+03:00  INFO 5372 --- [project] [      Thread-12] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:02:26.807+03:00  INFO 5372 --- [project] [      Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-08-25T13:02:26.810+03:00  INFO 5372 --- [project] [      Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:02:26.921+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:02:26.921+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:02:27.243+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:02:27.268+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:02:27.606+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:02:27.607+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:02:27.612+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:02:27.672+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 748 ms
+2026-08-25T13:02:27.826+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:02:27.862+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:02:27.863+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-08-25T13:02:27.867+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2682110c
+2026-08-25T13:02:27.867+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-08-25T13:02:27.869+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:02:28.025+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:02:28.059+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:02:29.077+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T13:02:29.561+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T13:02:29.563+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T13:02:29.566+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T13:02:29.568+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T13:02:29.572+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T13:02:29.573+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T13:02:29.574+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T13:02:29.577+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T13:02:29.844+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T13:02:29.872+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T13:02:29.877+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 2.995 seconds (process running for 2686.734)
+2026-08-25T13:02:29.881+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T13:02:29.885+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T13:02:29.886+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T13:02:29.886+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T13:02:29.887+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T13:04:37.351+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-08-25T13:04:37.353+03:00  INFO 5372 --- [project] [      Thread-19] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T13:04:37.368+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T13:04:37.371+03:00  INFO 5372 --- [project] [      Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:04:37.372+03:00  INFO 5372 --- [project] [      Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-08-25T13:04:37.374+03:00  INFO 5372 --- [project] [      Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:04:37.460+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:04:37.460+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:04:37.867+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:04:37.887+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:04:38.218+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:04:38.221+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:04:38.221+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:04:38.261+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 799 ms
+2026-08-25T13:04:38.468+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:04:38.514+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:04:38.515+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-08-25T13:04:38.520+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@640192f8
+2026-08-25T13:04:38.520+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-08-25T13:04:38.523+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:04:38.634+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:04:38.653+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:04:41.090+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T13:04:41.473+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T13:04:41.475+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T13:04:41.477+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T13:04:41.479+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T13:04:41.481+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T13:04:41.483+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T13:04:41.484+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T13:04:41.485+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2026-08-25T13:04:41.723+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T13:04:41.751+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T13:04:41.754+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 4.321 seconds (process running for 2818.614)
+2026-08-25T13:04:41.760+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T13:04:41.763+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T13:04:41.764+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T13:04:41.764+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T13:04:41.765+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T13:05:37.954+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2026-08-25T13:05:37.955+03:00  INFO 5372 --- [project] [      Thread-23] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T13:05:37.970+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T13:05:37.973+03:00  INFO 5372 --- [project] [      Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:05:37.973+03:00  INFO 5372 --- [project] [      Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-08-25T13:05:37.975+03:00  INFO 5372 --- [project] [      Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:05:38.057+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:05:38.057+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:05:38.357+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:05:38.378+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:05:38.643+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:05:38.644+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:05:38.644+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:05:38.683+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 624 ms
+2026-08-25T13:05:38.823+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:05:38.863+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:05:38.864+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-08-25T13:05:38.869+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30d20b73
+2026-08-25T13:05:38.869+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-08-25T13:05:38.871+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:05:39.001+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:05:39.024+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:05:39.113+03:00  WARN 5372 --- [project] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSeeder' defined in file [D:\projects\project\project\target\classes\App\Config\DataSeeder.class]: Unsatisfied dependency expressed through constructor parameter 4: No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-25T13:05:39.113+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:05:39.114+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-08-25T13:05:39.162+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2026-08-25T13:05:39.163+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-25T13:05:39.171+03:00  INFO 5372 --- [project] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-25T13:05:39.183+03:00 ERROR 5372 --- [project] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 4 of constructor in App.Config.DataSeeder required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:07:20.295+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:07:20.295+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:07:20.623+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:07:20.642+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:07:21.015+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:07:21.016+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:07:21.016+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:07:21.054+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 757 ms
+2026-08-25T13:07:21.284+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:07:21.313+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:07:21.313+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-08-25T13:07:21.318+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f9a7365
+2026-08-25T13:07:21.318+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-08-25T13:07:21.320+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:07:21.438+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:07:21.485+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:07:22.631+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T13:07:23.164+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T13:07:23.166+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T13:07:23.169+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.SeederController:
+	{POST [/api/seed/run]}: runSeeder()
+	{DELETE [/api/seed/clear]}: clearSeedData()
+2026-08-25T13:07:23.169+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T13:07:23.172+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T13:07:23.176+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T13:07:23.179+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T13:07:23.180+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T13:07:23.182+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-08-25T13:07:23.492+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T13:07:23.535+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T13:07:23.539+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 3.261 seconds (process running for 2980.403)
+2026-08-25T13:07:23.546+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T13:07:23.549+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T13:07:23.550+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T13:07:23.550+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T13:07:23.551+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T13:31:43.046+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2026-08-25T13:31:43.047+03:00  INFO 5372 --- [project] [      Thread-27] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T13:31:43.063+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T13:31:43.067+03:00  INFO 5372 --- [project] [      Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:31:43.068+03:00  INFO 5372 --- [project] [      Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-08-25T13:31:43.070+03:00  INFO 5372 --- [project] [      Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:31:43.159+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:31:43.159+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:31:43.803+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:31:43.821+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:31:44.121+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:31:44.123+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:31:44.123+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:31:44.173+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1011 ms
+2026-08-25T13:31:44.405+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:31:44.469+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:31:44.472+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-08-25T13:31:44.479+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@545bace2
+2026-08-25T13:31:44.479+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-08-25T13:31:44.482+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:31:44.683+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:31:44.710+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:31:45.477+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T13:31:45.989+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T13:31:45.990+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T13:31:45.994+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.SeederController:
+	{POST [/api/seed/run]}: runSeeder()
+	{DELETE [/api/seed/clear]}: clearSeedData()
+2026-08-25T13:31:45.994+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T13:31:45.996+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T13:31:46.001+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T13:31:46.008+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T13:31:46.010+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T13:31:46.012+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-08-25T13:31:46.340+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T13:31:46.362+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T13:31:46.366+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 3.237 seconds (process running for 4443.248)
+2026-08-25T13:31:46.370+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T13:31:46.371+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T13:31:46.372+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T13:31:46.372+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T13:31:46.373+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T13:38:40.180+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)
+2026-08-25T13:38:40.183+03:00  INFO 5372 --- [project] [      Thread-34] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T13:38:40.200+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T13:38:40.204+03:00  INFO 5372 --- [project] [      Thread-34] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:38:40.205+03:00  INFO 5372 --- [project] [      Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-08-25T13:38:40.208+03:00  INFO 5372 --- [project] [      Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:38:40.316+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:38:40.316+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:38:40.705+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:38:40.733+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:38:41.035+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:38:41.037+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:38:41.037+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:38:41.074+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 755 ms
+2026-08-25T13:38:41.265+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:38:41.316+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:38:41.318+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-08-25T13:38:41.324+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b094b92
+2026-08-25T13:38:41.324+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-08-25T13:38:41.326+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:38:41.510+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:38:41.536+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:38:42.867+03:00  WARN 5372 --- [project] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController' defined in file [D:\projects\project\project\target\classes\App\Controllers\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'App.Services.OrderService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-25T13:38:42.868+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:38:42.868+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2026-08-25T13:38:42.870+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2026-08-25T13:38:42.871+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-25T13:38:42.878+03:00  INFO 5372 --- [project] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-25T13:38:42.882+03:00 ERROR 5372 --- [project] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in App.Controllers.OrderController required a bean of type 'App.Services.OrderService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'App.Services.OrderService' in your configuration.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T13:38:44.371+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T13:38:44.371+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T13:38:44.863+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T13:38:44.883+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2026-08-25T13:38:45.033+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T13:38:45.033+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T13:38:45.033+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T13:38:45.054+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 680 ms
+2026-08-25T13:38:45.132+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T13:38:45.151+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T13:38:45.178+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2026-08-25T13:38:45.182+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7230965d
+2026-08-25T13:38:45.182+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2026-08-25T13:38:45.184+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T13:38:45.289+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T13:38:45.329+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T13:38:46.322+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T13:38:46.721+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T13:38:46.724+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T13:38:46.727+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.SeederController:
+	{POST [/api/seed/run]}: runSeeder()
+	{DELETE [/api/seed/clear]}: clearSeedData()
+2026-08-25T13:38:46.728+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T13:38:46.729+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T13:38:46.732+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T13:38:46.734+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T13:38:46.734+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T13:38:46.736+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-08-25T13:38:46.985+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T13:38:47.009+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T13:38:47.014+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 2.673 seconds (process running for 4863.899)
+2026-08-25T13:38:47.019+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T13:38:47.020+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T13:38:47.021+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T13:38:47.021+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T13:38:47.022+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-08-25T15:37:22.306+03:00  INFO 5372 --- [project] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2026-08-25T15:37:22.357+03:00  INFO 5372 --- [project] [      Thread-38] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-25T15:37:22.386+03:00  INFO 5372 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-25T15:37:22.430+03:00  INFO 5372 --- [project] [      Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T15:37:22.460+03:00  INFO 5372 --- [project] [      Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2026-08-25T15:37:22.469+03:00  INFO 5372 --- [project] [      Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-25T15:37:23.009+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Starting ProjectApplication using Java 21.0.5 with PID 5372 (D:\projects\project\project\target\classes started by basil in D:\projects\project\project)
+2026-08-25T15:37:23.010+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : The following 1 profile is active: "seed"
+2026-08-25T15:37:23.775+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-25T15:37:23.808+03:00  INFO 5372 --- [project] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 4 JPA repository interfaces.
+2026-08-25T15:37:24.252+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8098 (http)
+2026-08-25T15:37:24.256+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-25T15:37:24.257+03:00  INFO 5372 --- [project] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-25T15:37:24.307+03:00  INFO 5372 --- [project] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1288 ms
+2026-08-25T15:37:24.575+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25T15:37:24.642+03:00  INFO 5372 --- [project] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-25T15:37:24.644+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2026-08-25T15:37:24.649+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54353029
+2026-08-25T15:37:24.650+03:00  INFO 5372 --- [project] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2026-08-25T15:37:24.653+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/ordering_system?useSSL=false&allowPublicKeyRetrieval=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: ordering_system/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25T15:37:24.883+03:00  INFO 5372 --- [project] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25T15:37:24.932+03:00  INFO 5372 --- [project] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-25T15:37:26.187+03:00  INFO 5372 --- [project] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25T15:37:26.646+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.Authentication:
+	{POST [/api/auth/register]}: register(RegisterRequest)
+	{POST [/api/auth/login]}: login(LoginRequest)
+2026-08-25T15:37:26.650+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.OrderController:
+	{GET [/api/orders/user/{userId}]}: getOrdersByUserId(UUID,Jwt)
+	{PATCH [/api/orders/{id}]}: updateOrder(Long,OrderUpdateRequest)
+	{GET [/api/orders/{id}]}: getOrderById(Long,Jwt)
+	{POST [/api/orders/createOrder]}: createOrder(OrderCreationRequest,Jwt)
+	{GET [/api/orders/user/{userId}/paged]}: listOrdersByUserId(UUID,Pageable,Jwt)
+	{DELETE [/api/orders/{id}]}: deleteOrder(Long)
+2026-08-25T15:37:26.653+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.SeederController:
+	{POST [/api/seed/run]}: runSeeder()
+	{DELETE [/api/seed/clear]}: clearSeedData()
+2026-08-25T15:37:26.654+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	A.C.UserController:
+	{DELETE [/api/users/{uuid}]}: deleteUser(UUID,Jwt)
+2026-08-25T15:37:26.656+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.w.a.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-08-25T15:37:26.662+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2026-08-25T15:37:26.663+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2026-08-25T15:37:26.664+03:00 TRACE 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2026-08-25T15:37:26.666+03:00 DEBUG 5372 --- [project] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-08-25T15:37:26.942+03:00  INFO 5372 --- [project] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-08-25T15:37:26.972+03:00  INFO 5372 --- [project] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8098 (http) with context path '/'
+2026-08-25T15:37:26.978+03:00  INFO 5372 --- [project] [  restartedMain] App.ProjectApplication                   : Started ProjectApplication in 4.047 seconds (process running for 11983.886)
+2026-08-25T15:37:26.987+03:00 DEBUG 5372 --- [project] [  restartedMain] org.hibernate.SQL                        : 
+    select
+        u1_0.uuid 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-08-25T15:37:26.991+03:00  INFO 5372 --- [project] [  restartedMain] App.Config.DataSeeder                    : Seed data already present, skipping. Remove it first to re-seed.
+2026-08-25T15:37:26.992+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25T15:37:26.992+03:00  WARN 5372 --- [project] [  restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25T15:37:26.993+03:00  INFO 5372 --- [project] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
