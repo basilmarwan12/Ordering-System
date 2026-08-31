@@ -1,6 +1,7 @@
 package App.DTOS;
 
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 @Setter
 public class ProductUpdateRequest {
 
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
     private String description;

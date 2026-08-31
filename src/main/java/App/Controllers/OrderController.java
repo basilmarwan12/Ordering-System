@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/orders")
 @PreAuthorize("hasAnyRole('CUSTOMER', 'ADMIN')")
+@Validated
 public class OrderController {
     private final OrderService orderService;
 
@@ -110,10 +112,11 @@ public class OrderController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<OrderResponse> updateOrder(
             @PathVariable Long id,
-            @Valid @RequestBody OrderUpdateRequest request
+            @Valid @RequestBody OrderUpdateRequest request,
+            @AuthenticationPrincipal Jwt jwt
     ) {
 
-        Order order = orderService.updateOrder(id, request);
+        Order order = orderService.updateOrder(id, request, isAdmin(jwt));
 
         return ResponseEntity.ok(OrderResponse.from(order));
     }
@@ -137,11 +140,22 @@ public class OrderController {
     }
 
     /**
-     * Mirrors the "role" claim that SecurityConfig maps onto ROLE_ authorities,
-     * so the read checks in OrderService use the same source of truth as
-     * the @PreAuthorize annotations.
+     * Accepts both the legacy single-role claim and the standard roles list claim.
      */
     private static boolean isAdmin(Jwt jwt) {
-        return "ADMIN".equals(jwt.getClaim("role"));
+        String role = jwt.getClaimAsString("role");
+        if ("ADMIN".equalsIgnoreCase(role) || "ROLE_ADMIN".equalsIgnoreCase(role)) {
+            return true;
+        }
+
+        List<String> roles = jwt.getClaimAsStringList("roles");
+        if (roles == null) {
+            return false;
+        }
+
+        return roles.stream()
+                .map(value -> value == null ? "" : value)
+                .anyMatch(value -> value.equalsIgnoreCase("ADMIN")
+                        || value.equalsIgnoreCase("ROLE_ADMIN"));
     }
 }

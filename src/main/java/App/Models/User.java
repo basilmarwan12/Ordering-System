@@ -2,24 +2,26 @@ package App.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.UuidGenerator;
-import org.hibernate.type.SqlTypes;
-
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User extends BaseEntity {
 
     @Id
     @UuidGenerator
@@ -61,22 +63,4 @@ public class User {
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
-    public User() {
-    }
-
-    public User(
-            String firstName,
-            String lastName,
-            String phoneNumber,
-            String address,
-            LocalDate birthday,
-            String role
-    ) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.birthday = birthday;
-        this.role = role;
-    }
 }

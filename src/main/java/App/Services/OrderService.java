@@ -5,6 +5,7 @@ import App.DTOS.OrderItemRequest;
 import App.DTOS.OrderUpdateRequest;
 import App.Middlewares.Auth.UserNotFoundException;
 import App.Middlewares.Orders.InvalidOrderAmountsException;
+import App.Middlewares.Orders.InvalidOrderStateException;
 import App.Middlewares.Orders.OrderNotFoundException;
 import App.Models.Order;
 import App.Models.OrderItem;
@@ -24,10 +25,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
 public class OrderService {
+
+    private static final Map<String, Set<String>> VALID_STATUS_TRANSITIONS = Map.of(
+            "CREATED", Set.of("PAID", "CANCELLED"),
+            "PAID", Set.of("SHIPPED"),
+            "SHIPPED", Set.of("DELIVERED")
+    );
 
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
@@ -74,17 +83,30 @@ public class OrderService {
                             )
                     );
 
+            if (itemRequest.getQuantity() <= 0) {
+                throw new InvalidOrderAmountsException(
+                        "Order quantity must be greater than zero for product " + product.getId()
+                );
+            }
+
+            if (itemRequest.getQuantity() > product.getStock()) {
+                throw new InvalidOrderAmountsException(
+                        "Insufficient stock for product " + product.getName()
+                );
+            }
+
             BigDecimal itemTotal = product.getPrice()
                     .multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
-            
+
             subtotal = subtotal.add(itemTotal);
 
             OrderItem orderItem = new OrderItem();
             orderItem.setProduct(product);
             orderItem.setQuantity(itemRequest.getQuantity());
             orderItem.setUnitPrice(product.getPrice());
-            
+
             orderItems.add(orderItem);
+            product.setStock(product.getStock() - itemRequest.getQuantity());
         }
 
         // Validate discount amount against calculated subtotal
@@ -126,7 +148,7 @@ public class OrderService {
         );
 
         // Backend-controlled values
-        order.setStatus("PENDING");
+        order.setStatus("CREATED");
         order.setPaymentStatus("PENDING");
         order.setShippingStatus("NOT_SHIPPED");
 
@@ -220,7 +242,8 @@ public class OrderService {
     @Transactional
     public Order updateOrder(
             Long id,
-            OrderUpdateRequest request
+            OrderUpdateRequest request,
+            boolean callerIsAdmin
     ) {
 
         Order order = orderRepository
@@ -229,10 +252,26 @@ public class OrderService {
                         new OrderNotFoundException("Order not found")
                 );
 
+        if (request.getStatus() != null) {
+            validateStatusTransition(order.getStatus(), request.getStatus());
+
+            if (("SHIPPED".equals(request.getStatus()) || "DELIVERED".equals(request.getStatus()))
+                    && !callerIsAdmin) {
+                throw new AccessDeniedException("Only admins can change order status to SHIPPED or DELIVERED");
+            }
+
+            if ("SHIPPED".equals(request.getStatus()) && !"PAID".equals(order.getStatus())) {
+                throw new InvalidOrderStateException("An order cannot be shipped unless it is paid");
+            }
+
+            if ("PAID".equals(request.getStatus()) && "CANCELLED".equals(order.getStatus())) {
+                throw new InvalidOrderStateException("An order cannot be paid if it is cancelled");
+            }
+        }
+
         // Handle items update if provided
         if (request.getItems() != null && !request.getItems().isEmpty()) {
-            
-            // Calculate new subtotal from items
+
             BigDecimal newSubtotal = BigDecimal.ZERO;
             List<OrderItem> newOrderItems = new ArrayList<>();
 
@@ -245,9 +284,21 @@ public class OrderService {
                                 )
                         );
 
+                if (itemRequest.getQuantity() <= 0) {
+                    throw new InvalidOrderAmountsException(
+                            "Order quantity must be greater than zero for product " + product.getId()
+                    );
+                }
+
+                if (itemRequest.getQuantity() > product.getStock()) {
+                    throw new InvalidOrderAmountsException(
+                            "Insufficient stock for product " + product.getName()
+                    );
+                }
+
                 BigDecimal itemTotal = product.getPrice()
                         .multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
-                
+
                 newSubtotal = newSubtotal.add(itemTotal);
 
                 OrderItem orderItem = new OrderItem();
@@ -255,14 +306,13 @@ public class OrderService {
                 orderItem.setProduct(product);
                 orderItem.setQuantity(itemRequest.getQuantity());
                 orderItem.setUnitPrice(product.getPrice());
-                
+
                 newOrderItems.add(orderItem);
             }
 
-            // Delete old items and save new ones
             orderItemRepository.deleteAll(order.getItems());
             orderItemRepository.saveAll(newOrderItems);
-            
+
             order.setItems(newOrderItems);
             order.setSubtotal(newSubtotal);
         }
@@ -271,19 +321,14 @@ public class OrderService {
             order.setDiscountAmount(request.getDiscountAmount());
         }
 
-        // Validate discount amount against current subtotal
-        if (order.getDiscountAmount()
-                .compareTo(order.getSubtotal()) > 0) {
-
+        if (order.getDiscountAmount().compareTo(order.getSubtotal()) > 0) {
             throw new InvalidOrderAmountsException(
                     "Discount amount cannot be greater than subtotal"
             );
         }
 
-        // totalAmount is derived, never client-supplied.
         order.setTotalAmount(
-                order.getSubtotal()
-                        .subtract(order.getDiscountAmount())
+                order.getSubtotal().subtract(order.getDiscountAmount())
         );
 
         if (request.getStatus() != null) {
@@ -311,6 +356,28 @@ public class OrderService {
         }
 
         return orderRepository.save(order);
+    }
+
+    private void validateStatusTransition(String currentStatus, String nextStatus) {
+        String normalizedCurrent = currentStatus == null ? "CREATED" : currentStatus.trim();
+        String normalizedNext = nextStatus == null ? null : nextStatus.trim();
+
+        if (normalizedNext == null) {
+            return;
+        }
+
+        if ("DELIVERED".equals(normalizedCurrent) || "CANCELLED".equals(normalizedCurrent)) {
+            throw new InvalidOrderStateException(
+                    "No transitions are allowed from " + normalizedCurrent + " state"
+            );
+        }
+
+        Set<String> validTransitions = VALID_STATUS_TRANSITIONS.getOrDefault(normalizedCurrent, Set.of());
+        if (!validTransitions.contains(normalizedNext)) {
+            throw new InvalidOrderStateException(
+                    "Invalid order status transition from " + normalizedCurrent + " to " + normalizedNext
+            );
+        }
     }
 
 

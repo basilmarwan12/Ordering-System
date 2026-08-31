@@ -7,19 +7,22 @@ import App.Models.Product;
 import App.Services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@PreAuthorize("hasAnyRole('CUSTOMER', 'ADMIN')")
+@Validated
 public class ProductController {
 
     private final ProductService productService;
@@ -45,16 +48,31 @@ public class ProductController {
 
     @GetMapping("/paged")
     public ResponseEntity<PagedModel<ProductResponse>> listProducts(
-            @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.ASC)
-            Pageable pageable
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String direction
     ) {
-        Page<ProductResponse> page = productService.listProducts(pageable)
+        String safeSortBy = switch (sortBy) {
+            case "name" -> "name";
+            case "price" -> "price";
+            case "stock" -> "stock";
+            default -> "id";
+        };
+
+        Sort.Direction sortDirection = "desc".equalsIgnoreCase(direction)
+                ? Sort.Direction.DESC
+                : Sort.Direction.ASC;
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, safeSortBy));
+
+        Page<ProductResponse> pageResult = productService.listProducts(pageable)
                 .map(ProductResponse::from);
-        return ResponseEntity.ok(new PagedModel<>(page));
+
+        return ResponseEntity.ok(new PagedModel<>(pageResult));
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProductResponse> createProduct(
             @Valid @RequestBody ProductCreateRequest request
     ) {

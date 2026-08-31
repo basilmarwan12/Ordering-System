@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -24,6 +25,8 @@ public class OrderResponse {
     private String paymentMethod;
     private String shippingAddress;
     private String billingAddress;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     // The owner is exposed as an identifier only: serializing the User
     // relation would leak the owner's email, phone, address and birthday.
@@ -40,7 +43,9 @@ public class OrderResponse {
                             item.getProduct().getId(),
                             item.getProduct().getName(),
                             item.getQuantity(),
-                            item.getUnitPrice()
+                            item.getUnitPrice(),
+                            item.getCreatedAt(),
+                            item.getUpdatedAt()
                     ))
                     .collect(Collectors.toList())
                 : List.of();
@@ -57,6 +62,8 @@ public class OrderResponse {
                 order.getPaymentMethod(),
                 order.getShippingAddress(),
                 order.getBillingAddress(),
+                order.getCreatedAt(),
+                order.getUpdatedAt(),
                 order.getUser() != null
                         ? order.getUser().getUuid()
                         : null,

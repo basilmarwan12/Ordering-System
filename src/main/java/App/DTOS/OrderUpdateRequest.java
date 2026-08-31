@@ -25,8 +25,8 @@ public class OrderUpdateRequest {
     private BigDecimal discountAmount;
 
     @Pattern(
-            regexp = "PENDING|CONFIRMED|CANCELLED|COMPLETED",
-            message = "Status must be one of PENDING, CONFIRMED, CANCELLED, COMPLETED"
+            regexp = "CREATED|PAID|SHIPPED|DELIVERED|CANCELLED",
+            message = "Status must be one of CREATED, PAID, SHIPPED, DELIVERED, CANCELLED"
     )
     private String status;
 

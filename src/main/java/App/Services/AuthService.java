@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class AuthService {
@@ -90,7 +91,7 @@ public class AuthService {
 
         // Token lifetime
         Instant now = Instant.now();
-        long expirySeconds = 50000; // 15 minutes
+        long expirySeconds = 500000;
         Instant expiresAt = now.plusSeconds(expirySeconds);
 
         JwtClaimsSet claims = JwtClaimsSet.builder()
@@ -105,6 +106,10 @@ public class AuthService {
                 .claim(
                         "role",
                         user.getRole()
+                )
+                .claim(
+                        "roles",
+                        List.of(user.getRole())
                 )
                 .build();
 

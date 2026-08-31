@@ -9,27 +9,58 @@ import App.Middlewares.Orders.OrderNotFoundException;
 import App.Middlewares.Products.ProductNotFoundException;
 import App.Middlewares.Users.SelfDeletionNotAllowedException;
 import App.Middlewares.Users.UserHasOrdersException;
+import App.DTOS.ErrorResponseDto;
+import App.Middlewares.Orders.InvalidOrderStateException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private ErrorResponseDto buildErrorResponse(
+            HttpServletRequest request,
+            HttpStatus status,
+            String message
+    ) {
+        return new ErrorResponseDto(
+                request.getRequestURI(),
+                status.value(),
+                message,
+                LocalDateTime.now()
+        );
+    }
+
+    private Map<String, Object> buildValidationResponse(Map<String, String> errors) {
+        Map<String, Object> response = new LinkedHashMap<>();
+        response.put("status", HttpStatus.BAD_REQUEST.value());
+        response.put("message", "Validation failed");
+        response.put("errors", errors);
+        return response;
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> handleValidationErrors(
-            MethodArgumentNotValidException exception
+    public ResponseEntity<ErrorResponseDto> handleValidationErrors(
+            MethodArgumentNotValidException exception,
+            HttpServletRequest request
     ) {
 
         Map<String, String> errors = new LinkedHashMap<>();
@@ -43,250 +74,239 @@ public class GlobalExceptionHandler {
                         )
                 );
 
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", HttpStatus.BAD_REQUEST.value());
-        response.put("message", "Validation failed");
-        response.put("errors", errors);
+        String message = errors.isEmpty() ? "Validation failed" : "Validation failed";
 
         return ResponseEntity
                 .badRequest()
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, message));
+    }
+
+    @ExceptionHandler(BindException.class)
+    public ResponseEntity<ErrorResponseDto> handleBindException(
+            BindException exception,
+            HttpServletRequest request
+    ) {
+        Map<String, String> errors = new LinkedHashMap<>();
+        exception.getBindingResult().getFieldErrors().forEach(error ->
+                errors.put(error.getField(), error.getDefaultMessage()));
+        return ResponseEntity
+                .badRequest()
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
     }
 
     @ExceptionHandler(EmailAlreadyExistsException.class)
-    public ResponseEntity<Map<String, Object>> handleEmailAlreadyExists(
-            EmailAlreadyExistsException exception
+    public ResponseEntity<ErrorResponseDto> handleEmailAlreadyExists(
+            EmailAlreadyExistsException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 409);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.CONFLICT, exception.getMessage()));
     }
 
     @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<Map<String, Object>> handleInvalidCredentials(
-            InvalidCredentialsException exception
+    public ResponseEntity<ErrorResponseDto> handleInvalidCredentials(
+            InvalidCredentialsException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 401);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.UNAUTHORIZED, exception.getMessage()));
     }
 
     @ExceptionHandler(PhoneNumberAlreadyExistsException.class)
-    public ResponseEntity<Map<String, Object>> handlePhoneAlreadyExists(
-            PhoneNumberAlreadyExistsException exception
+    public ResponseEntity<ErrorResponseDto> handlePhoneAlreadyExists(
+            PhoneNumberAlreadyExistsException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 409);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.CONFLICT, exception.getMessage()));
     }
 
     @ExceptionHandler(HandlerMethodValidationException.class)
-    public ResponseEntity<Map<String, Object>> handleMethodValidation(
-            HandlerMethodValidationException exception
+    public ResponseEntity<ErrorResponseDto> handleMethodValidation(
+            HandlerMethodValidationException exception,
+            HttpServletRequest request
     ) {
 
-        Map<String, Object> response = new LinkedHashMap<>();
+        Map<String, String> errors = new LinkedHashMap<>();
 
-        response.put("status", 400);
-        response.put("message", "Validation failed");
+        exception.getAllErrors().forEach(error -> {
+            String fieldName = error instanceof FieldError fieldError
+                    ? fieldError.getField()
+                    : (error.getCodes() != null && error.getCodes().length > 0
+                        ? error.getCodes()[0]
+                        : "parameter");
+            errors.put(fieldName, error.getDefaultMessage());
+        });
 
         return ResponseEntity
                 .badRequest()
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponseDto> handleConstraintViolation(
+            ConstraintViolationException exception,
+            HttpServletRequest request
+    ) {
+
+        Map<String, String> errors = new LinkedHashMap<>();
+
+        exception.getConstraintViolations().forEach(violation -> {
+            String fieldName = violation.getPropertyPath().toString();
+            errors.put(fieldName, violation.getMessage());
+        });
+
+        return ResponseEntity
+                .badRequest()
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<ErrorResponseDto> handleValidationException(
+            ValidationException exception,
+            HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .badRequest()
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, exception.getMessage()));
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<Map<String, Object>> handleInvalidBody(
-            HttpMessageNotReadableException exception
+    public ResponseEntity<ErrorResponseDto> handleInvalidBody(
+            HttpMessageNotReadableException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 400);
-        response.put(
-                "message",
-                "Request body is missing or invalid"
-        );
-
         return ResponseEntity
                 .badRequest()
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Request body is missing or invalid"));
     }
 
 
     @ExceptionHandler(OrderNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleOrderNotFound(
-            OrderNotFoundException exception
+    public ResponseEntity<ErrorResponseDto> handleOrderNotFound(
+            OrderNotFoundException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 404);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.NOT_FOUND, exception.getMessage()));
     }
 
     @ExceptionHandler(InvalidOrderAmountsException.class)
-    public ResponseEntity<Map<String, Object>> handleInvalidOrderAmounts(
-            InvalidOrderAmountsException exception
+    public ResponseEntity<ErrorResponseDto> handleInvalidOrderAmounts(
+            InvalidOrderAmountsException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 400);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .badRequest()
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, exception.getMessage()));
+    }
+
+    @ExceptionHandler(InvalidOrderStateException.class)
+    public ResponseEntity<ErrorResponseDto> handleInvalidOrderState(
+            InvalidOrderStateException exception,
+            HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .badRequest()
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, exception.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<Map<String, Object>> handleTypeMismatch(
-            MethodArgumentTypeMismatchException exception
+    public ResponseEntity<ErrorResponseDto> handleTypeMismatch(
+            MethodArgumentTypeMismatchException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 400);
-        response.put(
-                "message",
-                "Invalid value for '" + exception.getName() + "'"
-        );
-
         return ResponseEntity
                 .badRequest()
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST,
+                        "Invalid value for '" + exception.getName() + "'"));
     }
 
     @ExceptionHandler(SelfDeletionNotAllowedException.class)
-    public ResponseEntity<Map<String, Object>> handleSelfDeletion(
-            SelfDeletionNotAllowedException exception
+    public ResponseEntity<ErrorResponseDto> handleSelfDeletion(
+            SelfDeletionNotAllowedException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 409);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.CONFLICT, exception.getMessage()));
     }
 
     @ExceptionHandler(UserHasOrdersException.class)
-    public ResponseEntity<Map<String, Object>> handleUserHasOrders(
-            UserHasOrdersException exception
+    public ResponseEntity<ErrorResponseDto> handleUserHasOrders(
+            UserHasOrdersException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 409);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.CONFLICT, exception.getMessage()));
     }
 
     // Must be handled explicitly: otherwise the Exception handler below
     // swallows the denial from @PreAuthorize and reports it as a 500.
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<Map<String, Object>> handleAccessDenied(
-            AccessDeniedException exception
+    public ResponseEntity<ErrorResponseDto> handleAccessDenied(
+            AccessDeniedException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 401);
-        response.put("message", "Unauthorized");
-
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.UNAUTHORIZED, "Unauthorized"));
     }
 
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handleGeneralException(
-            Exception exception
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleNoResourceFound(
+            NoResourceFoundException exception,
+            HttpServletRequest request
     ) {
-        exception.printStackTrace();
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 500);
-        response.put("message", "Internal server error");
-
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(response);
-    }
-
-
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleUserNotFoundException(
-            UserNotFoundException exception
-    ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 404);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.NOT_FOUND,
+                        "No resource found for path: " + request.getRequestURI()));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleGeneralException(
+            Exception exception,
+            HttpServletRequest request
+    ) {
+        exception.printStackTrace();
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(buildErrorResponse(request, HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error"));
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFoundException(
+            UserNotFoundException exception,
+            HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(buildErrorResponse(request, HttpStatus.NOT_FOUND, exception.getMessage()));
     }
 
     @ExceptionHandler(UsernameNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleUsernameNotFound(
-            UsernameNotFoundException exception
+    public ResponseEntity<ErrorResponseDto> handleUsernameNotFound(
+            UsernameNotFoundException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 401);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.UNAUTHORIZED, exception.getMessage()));
     }
 
     @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleProductNotFoundException(
-            ProductNotFoundException exception
+    public ResponseEntity<ErrorResponseDto> handleProductNotFoundException(
+            ProductNotFoundException exception,
+            HttpServletRequest request
     ) {
-
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("status", 404);
-        response.put("message", exception.getMessage());
-
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(response);
+                .body(buildErrorResponse(request, HttpStatus.NOT_FOUND, exception.getMessage()));
     }
 }
