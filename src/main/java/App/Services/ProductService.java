@@ -21,7 +21,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Product createProduct(ProductCreateRequest request) {
         Product product = new Product();
         product.setName(request.getName());
@@ -47,7 +47,7 @@ public class ProductService {
         return productRepository.findAll(pageable);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Product updateProduct(Long id, ProductUpdateRequest request) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found"));
@@ -68,7 +68,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found"));

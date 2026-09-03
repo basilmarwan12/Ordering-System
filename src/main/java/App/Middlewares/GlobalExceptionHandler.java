@@ -49,12 +49,17 @@ public class GlobalExceptionHandler {
         );
     }
 
-    private Map<String, Object> buildValidationResponse(Map<String, String> errors) {
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("status", HttpStatus.BAD_REQUEST.value());
-        response.put("message", "Validation failed");
-        response.put("errors", errors);
-        return response;
+    private ErrorResponseDto buildValidationErrorResponse(
+            HttpServletRequest request,
+            Map<String, String> errors
+    ) {
+        return new ErrorResponseDto(
+                request.getRequestURI(),
+                HttpStatus.BAD_REQUEST.value(),
+                "Validation failed",
+                LocalDateTime.now(),
+                errors
+        );
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -74,11 +79,9 @@ public class GlobalExceptionHandler {
                         )
                 );
 
-        String message = errors.isEmpty() ? "Validation failed" : "Validation failed";
-
         return ResponseEntity
                 .badRequest()
-                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, message));
+                .body(buildValidationErrorResponse(request, errors));
     }
 
     @ExceptionHandler(BindException.class)
@@ -91,7 +94,7 @@ public class GlobalExceptionHandler {
                 errors.put(error.getField(), error.getDefaultMessage()));
         return ResponseEntity
                 .badRequest()
-                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
+                .body(buildValidationErrorResponse(request, errors));
     }
 
     @ExceptionHandler(EmailAlreadyExistsException.class)
@@ -143,7 +146,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .badRequest()
-                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
+                .body(buildValidationErrorResponse(request, errors));
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -161,7 +164,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .badRequest()
-                .body(buildErrorResponse(request, HttpStatus.BAD_REQUEST, "Validation failed"));
+                .body(buildValidationErrorResponse(request, errors));
     }
 
     @ExceptionHandler(ValidationException.class)

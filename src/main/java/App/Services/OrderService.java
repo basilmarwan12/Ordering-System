@@ -56,112 +56,54 @@ public class OrderService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Order createOrder(
             OrderCreationRequest request,
             String userId
     ) {
 
-        UUID uuid = UUID.fromString(userId);
-
-        User user = userRepository
-                .findById(uuid)
-                .orElseThrow(() ->
-                        new UserNotFoundException("User not found")
-                );
-
-        // Calculate subtotal from items and products
+        User user = loadUser(userId);
         BigDecimal subtotal = BigDecimal.ZERO;
         List<OrderItem> orderItems = new ArrayList<>();
 
         for (OrderItemRequest itemRequest : request.getItems()) {
-            Product product = productRepository
-                    .findById(itemRequest.getProductId())
-                    .orElseThrow(() ->
-                            new InvalidOrderAmountsException(
-                                    "Product with id " + itemRequest.getProductId() + " not found"
-                            )
-                    );
-
-            if (itemRequest.getQuantity() <= 0) {
-                throw new InvalidOrderAmountsException(
-                        "Order quantity must be greater than zero for product " + product.getId()
-                );
-            }
-
-            if (itemRequest.getQuantity() > product.getStock()) {
-                throw new InvalidOrderAmountsException(
-                        "Insufficient stock for product " + product.getName()
-                );
-            }
+            Product product = getProductOrThrow(itemRequest.getProductId());
+            validateItemQuantity(product, itemRequest.getQuantity());
 
             BigDecimal itemTotal = product.getPrice()
                     .multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
-
             subtotal = subtotal.add(itemTotal);
 
             OrderItem orderItem = new OrderItem();
             orderItem.setProduct(product);
             orderItem.setQuantity(itemRequest.getQuantity());
             orderItem.setUnitPrice(product.getPrice());
-
             orderItems.add(orderItem);
+
             product.setStock(product.getStock() - itemRequest.getQuantity());
         }
 
-        // Validate discount amount against calculated subtotal
-        if (request.getDiscountAmount()
-                .compareTo(subtotal) > 0) {
-
-            throw new InvalidOrderAmountsException(
-                    "Discount amount cannot be greater than subtotal"
-            );
-        }
+        validateDiscount(request.getDiscountAmount(), subtotal);
 
         Order order = new Order();
-
         order.setNumber(generateOrderNumber());
-
         order.setUser(user);
-
         order.setSubtotal(subtotal);
-
-        order.setDiscountAmount(
-                request.getDiscountAmount()
-        );
-
-        BigDecimal totalAmount = subtotal
-                .subtract(request.getDiscountAmount());
-
-        order.setTotalAmount(totalAmount);
-
-        order.setPaymentMethod(
-                request.getPaymentMethod()
-        );
-
-        order.setShippingAddress(
-                request.getShippingAddress()
-        );
-
-        order.setBillingAddress(
-                request.getBillingAddress()
-        );
-
-        // Backend-controlled values
+        order.setDiscountAmount(request.getDiscountAmount());
+        order.setTotalAmount(subtotal.subtract(request.getDiscountAmount()));
+        order.setPaymentMethod(request.getPaymentMethod());
+        order.setShippingAddress(request.getShippingAddress());
+        order.setBillingAddress(request.getBillingAddress());
         order.setStatus("CREATED");
         order.setPaymentStatus("PENDING");
         order.setShippingStatus("NOT_SHIPPED");
 
-        // Save order first
         Order savedOrder = orderRepository.save(order);
 
-        // Link items to saved order and save items
         for (OrderItem item : orderItems) {
             item.setOrder(savedOrder);
         }
         orderItemRepository.saveAll(orderItems);
-        
-        // Update order with items
         savedOrder.setItems(orderItems);
 
         return savedOrder;
@@ -239,76 +181,19 @@ public class OrderService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Order updateOrder(
             Long id,
             OrderUpdateRequest request,
             boolean callerIsAdmin
     ) {
 
-        Order order = orderRepository
-                .findById(id)
-                .orElseThrow(() ->
-                        new OrderNotFoundException("Order not found")
-                );
+        Order order = getOrderOrThrow(id);
+        validateStatusUpdate(request, order, callerIsAdmin);
 
-        if (request.getStatus() != null) {
-            validateStatusTransition(order.getStatus(), request.getStatus());
-
-            if (("SHIPPED".equals(request.getStatus()) || "DELIVERED".equals(request.getStatus()))
-                    && !callerIsAdmin) {
-                throw new AccessDeniedException("Only admins can change order status to SHIPPED or DELIVERED");
-            }
-
-            if ("SHIPPED".equals(request.getStatus()) && !"PAID".equals(order.getStatus())) {
-                throw new InvalidOrderStateException("An order cannot be shipped unless it is paid");
-            }
-
-            if ("PAID".equals(request.getStatus()) && "CANCELLED".equals(order.getStatus())) {
-                throw new InvalidOrderStateException("An order cannot be paid if it is cancelled");
-            }
-        }
-
-        // Handle items update if provided
         if (request.getItems() != null && !request.getItems().isEmpty()) {
-
-            BigDecimal newSubtotal = BigDecimal.ZERO;
-            List<OrderItem> newOrderItems = new ArrayList<>();
-
-            for (OrderItemRequest itemRequest : request.getItems()) {
-                Product product = productRepository
-                        .findById(itemRequest.getProductId())
-                        .orElseThrow(() ->
-                                new InvalidOrderAmountsException(
-                                        "Product with id " + itemRequest.getProductId() + " not found"
-                                )
-                        );
-
-                if (itemRequest.getQuantity() <= 0) {
-                    throw new InvalidOrderAmountsException(
-                            "Order quantity must be greater than zero for product " + product.getId()
-                    );
-                }
-
-                if (itemRequest.getQuantity() > product.getStock()) {
-                    throw new InvalidOrderAmountsException(
-                            "Insufficient stock for product " + product.getName()
-                    );
-                }
-
-                BigDecimal itemTotal = product.getPrice()
-                        .multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
-
-                newSubtotal = newSubtotal.add(itemTotal);
-
-                OrderItem orderItem = new OrderItem();
-                orderItem.setOrder(order);
-                orderItem.setProduct(product);
-                orderItem.setQuantity(itemRequest.getQuantity());
-                orderItem.setUnitPrice(product.getPrice());
-
-                newOrderItems.add(orderItem);
-            }
+            BigDecimal newSubtotal = calculateSubtotal(request.getItems());
+            List<OrderItem> newOrderItems = buildOrderItems(order, request.getItems());
 
             orderItemRepository.deleteAll(order.getItems());
             orderItemRepository.saveAll(newOrderItems);
@@ -321,20 +206,40 @@ public class OrderService {
             order.setDiscountAmount(request.getDiscountAmount());
         }
 
-        if (order.getDiscountAmount().compareTo(order.getSubtotal()) > 0) {
-            throw new InvalidOrderAmountsException(
-                    "Discount amount cannot be greater than subtotal"
-            );
-        }
-
-        order.setTotalAmount(
-                order.getSubtotal().subtract(order.getDiscountAmount())
-        );
+        validateDiscount(order.getDiscountAmount(), order.getSubtotal());
+        order.setTotalAmount(order.getSubtotal().subtract(order.getDiscountAmount()));
 
         if (request.getStatus() != null) {
             order.setStatus(request.getStatus());
         }
 
+        applyOptionalFieldUpdates(order, request);
+
+        return orderRepository.save(order);
+    }
+
+    private void validateStatusUpdate(OrderUpdateRequest request, Order order, boolean callerIsAdmin) {
+        if (request.getStatus() == null) {
+            return;
+        }
+
+        validateStatusTransition(order.getStatus(), request.getStatus());
+
+        if (("SHIPPED".equals(request.getStatus()) || "DELIVERED".equals(request.getStatus()))
+                && !callerIsAdmin) {
+            throw new AccessDeniedException("Only admins can change order status to SHIPPED or DELIVERED");
+        }
+
+        if ("SHIPPED".equals(request.getStatus()) && !"PAID".equals(order.getStatus())) {
+            throw new InvalidOrderStateException("An order cannot be shipped unless it is paid");
+        }
+
+        if ("PAID".equals(request.getStatus()) && "CANCELLED".equals(order.getStatus())) {
+            throw new InvalidOrderStateException("An order cannot be paid if it is cancelled");
+        }
+    }
+
+    private void applyOptionalFieldUpdates(Order order, OrderUpdateRequest request) {
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
         }
@@ -354,8 +259,78 @@ public class OrderService {
         if (request.getBillingAddress() != null) {
             order.setBillingAddress(request.getBillingAddress());
         }
+    }
 
-        return orderRepository.save(order);
+    private BigDecimal calculateSubtotal(List<OrderItemRequest> itemRequests) {
+        BigDecimal subtotal = BigDecimal.ZERO;
+
+        for (OrderItemRequest itemRequest : itemRequests) {
+            Product product = getProductOrThrow(itemRequest.getProductId());
+            validateItemQuantity(product, itemRequest.getQuantity());
+            subtotal = subtotal.add(product.getPrice().multiply(BigDecimal.valueOf(itemRequest.getQuantity())));
+        }
+
+        return subtotal;
+    }
+
+    private List<OrderItem> buildOrderItems(Order order, List<OrderItemRequest> itemRequests) {
+        List<OrderItem> orderItems = new ArrayList<>();
+
+        for (OrderItemRequest itemRequest : itemRequests) {
+            Product product = getProductOrThrow(itemRequest.getProductId());
+            validateItemQuantity(product, itemRequest.getQuantity());
+
+            OrderItem item = new OrderItem();
+            item.setOrder(order);
+            item.setProduct(product);
+            item.setQuantity(itemRequest.getQuantity());
+            item.setUnitPrice(product.getPrice());
+            orderItems.add(item);
+        }
+
+        return orderItems;
+    }
+
+    private void validateItemQuantity(Product product, int quantity) {
+        if (quantity <= 0) {
+            throw new InvalidOrderAmountsException(
+                    "Order quantity must be greater than zero for product " + product.getId()
+            );
+        }
+
+        if (quantity > product.getStock()) {
+            throw new InvalidOrderAmountsException(
+                    "Insufficient stock for product " + product.getName()
+            );
+        }
+    }
+
+    private void validateDiscount(BigDecimal discountAmount, BigDecimal subtotal) {
+        if (discountAmount.compareTo(subtotal) > 0) {
+            throw new InvalidOrderAmountsException(
+                    "Discount amount cannot be greater than subtotal"
+            );
+        }
+    }
+
+    private User loadUser(String userId) {
+        UUID uuid = UUID.fromString(userId);
+        return userRepository
+                .findById(uuid)
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
+    }
+
+    private Product getProductOrThrow(Long productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new InvalidOrderAmountsException(
+                        "Product with id " + productId + " not found"
+                ));
+    }
+
+    private Order getOrderOrThrow(Long id) {
+        return orderRepository
+                .findById(id)
+                .orElseThrow(() -> new OrderNotFoundException("Order not found"));
     }
 
     private void validateStatusTransition(String currentStatus, String nextStatus) {
@@ -381,7 +356,7 @@ public class OrderService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void deleteOrder(Long id) {
 
         Order order = orderRepository

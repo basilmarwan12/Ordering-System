@@ -36,6 +36,10 @@ public class AuthService {
     }
 
     public User register(RegisterRequest request) {
+        return register(request, "CUSTOMER");
+    }
+
+    public User register(RegisterRequest request, String role) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new EmailAlreadyExistsException("Email already exists");
@@ -55,7 +59,7 @@ public class AuthService {
         user.setAddress(request.getAddress());
         user.setBirthday(request.getBirthday());
 
-        user.setRole("CUSTOMER");
+        user.setRole(role);
 
         user.setPassword(
                 passwordEncoder.encode(request.getPassword())
